@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/pasder_bg_halaman"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Assignment Anda"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/black" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_riwayat"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/bg_tombol_lonjong"
+        android:paddingHorizontal="20dp"
+        android:text="Riwayat"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/card_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_spinner_kuning"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp">
+
+                <FrameLayout
+                    android:id="@+id/img_frame1"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/bg_foto_notif"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@android:drawable/ic_menu_gallery" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tv_title1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:text="Paket Wisata\nKuliner"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/img_frame1"
+                    app:layout_constraintTop_toTopOf="@id/img_frame1" />
+
+                <TextView
+                    android:id="@+id/tv_detail1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Penyewa: Arif purnomo\n29/02/2026"
+                    android:textSize="11sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="@id/tv_title1"
+                    app:layout_constraintTop_toBottomOf="@id/tv_title1" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/card_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_spinner_kuning"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp">
+
+                <FrameLayout
+                    android:id="@+id/img_frame2"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/bg_foto_notif"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@android:drawable/ic_menu_gallery" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tv_title2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:text="Paket Wisata\nReligi"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/img_frame2"
+                    app:layout_constraintTop_toTopOf="@id/img_frame2" />
+
+                <TextView
+                    android:id="@+id/tv_detail2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Penyewa: Aris Hasanudin\n10/03/2026"
+                    android:textSize="11sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="@id/tv_title2"
+                    app:layout_constraintTop_toBottomOf="@id/tv_title2" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/card_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_spinner_kuning"
+                android:padding="12dp"
+                android:layout_marginBottom="20dp">
+
+                <FrameLayout
+                    android:id="@+id/img_frame3"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/bg_foto_notif"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@android:drawable/ic_menu_gallery" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tv_title3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:text="Paket Wisata\nSejarah &amp; Budaya"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/img_frame3"
+                    app:layout_constraintTop_toTopOf="@id/img_frame3" />
+
+                <TextView
+                    android:id="@+id/tv_detail3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Penyewa: Yudha Pratama\n27/03/2026"
+                    android:textSize="11sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="@id/tv_title3"
+                    app:layout_constraintTop_toBottomOf="@id/tv_title3" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

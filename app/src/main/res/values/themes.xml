@@ -1,0 +1,8 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.PasDer" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <color name="colorPrimary">@color/pasder_hijau</color>
+        <color name="colorPrimaryVariant">@color/pasder_hijau</color>
+        <color name="colorOnPrimary">@color/white</color>
+    </style>
+</resources>

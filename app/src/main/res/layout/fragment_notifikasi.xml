@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/pasder_bg_halaman"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:id="@+id/btn_back_notif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_marginBottom="24dp">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@android:drawable/ic_menu_revert"
+            app:tint="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kembali"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notifikasi"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginBottom="16dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_notif_card"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp">
+
+                <FrameLayout
+                    android:id="@+id/img_notif_1"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/bg_foto_notif"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@android:drawable/ic_menu_gallery" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tv_notif_title1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:text="Paket Wisata\nSejarah &amp; Budaya"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/img_notif_1"
+                    app:layout_constraintTop_toTopOf="@id/img_notif_1" />
+
+                <TextView
+                    android:id="@+id/tv_notif_price1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rp. 100.000"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/tv_notif_title1"
+                    app:layout_constraintStart_toStartOf="@id/tv_notif_title1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 menit yang lalu"
+                    android:textSize="11sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@id/img_notif_1"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Anda telah ditugaskan oleh Admin"
+                    android:textSize="11sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toBottomOf="@id/img_notif_1"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_notif_card"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp">
+
+                <FrameLayout
+                    android:id="@+id/img_notif_2"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/bg_foto_notif"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@android:drawable/ic_menu_gallery" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tv_notif_title2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:text="Paket Wisata\nReligi"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/img_notif_2"
+                    app:layout_constraintTop_toTopOf="@id/img_notif_2" />
+
+                <TextView
+                    android:id="@+id/tv_notif_price2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rp. 100.000"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/tv_notif_title2"
+                    app:layout_constraintStart_toStartOf="@id/tv_notif_title2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="17/01/2026"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@id/img_notif_2"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Anda ditugaskan secara otomatis oleh sistem"
+                    android:textSize="11sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toBottomOf="@id/img_notif_2"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
