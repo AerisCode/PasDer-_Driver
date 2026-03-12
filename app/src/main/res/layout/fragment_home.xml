@@ -30,11 +30,12 @@
             android:layout_marginStart="12dp"
             android:text="ManggaHijau"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/img_profile"
             app:layout_constraintStart_toEndOf="@id/img_profile"
-            app:layout_constraintTop_toTopOf="@id/img_profile" />
+            app:layout_constraintTop_toTopOf="@id/img_profile"
+            app:layout_constraintVertical_bias="0.419" />
 
         <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/switch_status_driver"
@@ -46,7 +47,7 @@
             app:layout_constraintEnd_toStartOf="@id/icon_notif"
             app:layout_constraintTop_toTopOf="@id/img_profile"
             app:layout_constraintVertical_bias="0.428"
-            app:layout_marginEnd="8dp"
+            app:layout_marginEnd="10dp"
             app:thumbTint="@color/pasder_hijau" />
 
         <ImageView
