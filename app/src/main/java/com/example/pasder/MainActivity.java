@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
                 selectedFragment = new HomeFragment();
             } else if (id == R.id.nav_assignment) {
                 selectedFragment = new AssignmentFragment();
-            } else if (id == R.id.nav_profile) {
+            } else if (id == R.id.nav_saya) {
                 selectedFragment = new SayaFragment();
             }
 
