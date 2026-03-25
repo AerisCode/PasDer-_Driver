@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    Layout for the Detail Assignment fragment.
+    This layout displays comprehensive information about a specific assignment,
+    including:
+    - Assignment title and capacity.
+    - List of destinations.
+    - Estimated travel time.
+    - Customer details (name, phone, price).
+    - Schedule (departure and return).
+    - Pickup location and passenger count.
+
+    It provides navigation back to the previous screen and an option to enter "Sewa" mode.
+-->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
