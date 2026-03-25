@@ -4,7 +4,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
@@ -19,7 +21,6 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.Vi
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_assignment, parent, false);
         return new ViewHolder(view);
     }
@@ -30,6 +31,18 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.Vi
 
         holder.tvTitle.setText(data.getNamaPaket());
         holder.tvDetail.setText("Penyewa: " + data.getPenyewa() + "\n" + data.getTanggal());
+
+        holder.itemView.setOnClickListener(v -> {
+            Toast.makeText(v.getContext(), "Membuka Detail " + data.getNamaPaket(), Toast.LENGTH_SHORT).show();
+
+            if (v.getContext() instanceof AppCompatActivity) {
+                AppCompatActivity activity = (AppCompatActivity) v.getContext();
+                activity.getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new DetailAssignmentFragment())
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
     }
 
     @Override

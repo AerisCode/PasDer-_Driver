@@ -1,42 +1,42 @@
 package com.example.pasder;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.Button;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.appcompat.widget.AppCompatButton;
 
-/**
- * Fragment that displays the details of a specific assignment.
- * It allows users to go back to the previous fragment or enter "Sewa" mode.
- */
 public class DetailAssignmentFragment extends Fragment {
+
+    private Button btnModeSewa;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_detail_assigment, container, false);
+        // PENTING: Pastikan nama layout XML-nya benar (fragment_detail_assignment)
+        View view = inflater.inflate(R.layout.fragment_detail_assignment, container, false);
 
-        // Initialize components
-        LinearLayout btnBack = view.findViewById(R.id.btn_back_detail);
-        AppCompatButton btnModeSewa = view.findViewById(R.id.btn_mode_sewa);
-
-        // Set Click Listeners
-        btnBack.setOnClickListener(v -> {
-            // Navigate back to the previous fragment
-            if (getFragmentManager() != null) {
-                getFragmentManager().popBackStack();
-            }
-        });
+        // Inisialisasi tombol (Sesuaikan ID-nya dengan yang ada di XML lo)
+        btnModeSewa = view.findViewById(R.id.btn_masuk_mode_sewa);
 
         btnModeSewa.setOnClickListener(v -> {
-            // Action for entering "Sewa" mode
-            // For now, this could be a toast or navigation to another screen
+            // 1. Simpan Status: SEWA AKTIF
+            SharedPreferences prefs = getActivity().getSharedPreferences("PasDerPrefs", Context.MODE_PRIVATE);
+            prefs.edit().putBoolean("is_sewa_active", true).apply();
+
+            // 2. Kasih tau user
+            Toast.makeText(getContext(), "Masuk Mode Sewa: Menampilkan Rute", Toast.LENGTH_SHORT).show();
+
+            // 3. Pindah balik ke Home (Maps) otomatis
+            getParentFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, new HomeFragment())
+                    .commit();
         });
 
         return view;

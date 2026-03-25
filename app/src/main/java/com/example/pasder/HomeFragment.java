@@ -1,58 +1,62 @@
-package com.example.pasder; // Pastikan ini sesuai dengan nama package di manifest kamu
+package com.example.pasder;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
-import android.widget.TextView;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-
 import com.google.android.material.switchmaterial.SwitchMaterial;
 
 public class HomeFragment extends Fragment {
 
-    private SwitchMaterial switchStatus;
-    private Spinner spinnerKeluhan;
-    private TextView tvUsername;
-    private View layoutOffShift; // Tambahkan ini
+    private SharedPreferences prefs;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        // Inisialisasi View
-        switchStatus = view.findViewById(R.id.switch_status_driver);
-        spinnerKeluhan = view.findViewById(R.id.spinner_keluhan);
-        tvUsername = view.findViewById(R.id.tv_username_home);
-        layoutOffShift = view.findViewById(R.id.layout_off_shift);
+        prefs = requireActivity().getSharedPreferences("PasDerPrefs", Context.MODE_PRIVATE);
 
-        // Logika Switch
+        // Inisialisasi Komponen UI
+        SwitchMaterial switchStatus = view.findViewById(R.id.switch_status_driver);
+        LinearLayout layoutOffShift = view.findViewById(R.id.layout_off_shift);
+        CardView cardActiveOrder = view.findViewById(R.id.card_active_order);
+        Button btnSelesaikan = view.findViewById(R.id.btn_selesaikan);
+
+        // Update UI berdasarkan status simpanan (is_sewa_active)
+        boolean isSewaActive = prefs.getBoolean("is_sewa_active", false);
+        if (isSewaActive) {
+            cardActiveOrder.setVisibility(View.VISIBLE);
+        } else {
+            cardActiveOrder.setVisibility(View.GONE);
+        }
+
+        // Fungsionalitas Switch (Aktif / Istirahat)
         switchStatus.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
-                // Driver Online(Maps terlihat)
                 layoutOffShift.setVisibility(View.GONE);
-                Toast.makeText(getActivity(), "Driver Aktif (Online)", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Status: Aktif", Toast.LENGTH_SHORT).show();
             } else {
-                // Driver Offline(Maps tertutup)
                 layoutOffShift.setVisibility(View.VISIBLE);
-                Toast.makeText(getActivity(), "Driver Istirahat (Offline)", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Status: Istirahat", Toast.LENGTH_SHORT).show();
             }
         });
 
-        // --- Bagian Spinner ---
-        String[] listKeluhan = {"Keluhan", "Ban Bocor", "Mesin Mogok", "Bensin Habis", "Lainnya"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
-                android.R.layout.simple_spinner_item, listKeluhan) {
-        };
-        spinnerKeluhan.setAdapter(adapter);
+        // Fungsionalitas Tombol Selesaikan Sewa
+        btnSelesaikan.setOnClickListener(v -> {
+            prefs.edit().putBoolean("is_sewa_active", false).apply();
+            cardActiveOrder.setVisibility(View.GONE);
+            Toast.makeText(getContext(), "Sewa Telah Diselesaikan", Toast.LENGTH_SHORT).show();
+        });
 
         return view;
     }
