@@ -21,54 +21,37 @@ public class HomeFragment extends Fragment {
     private SwitchMaterial switchStatus;
     private Spinner spinnerKeluhan;
     private TextView tvUsername;
+    private View layoutOffShift; // Tambahkan ini
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        // 1. Inflate layout fragment_home.xml
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        // 2. Inisialisasi View sesuai ID XML terbaru kamu
+        // Inisialisasi View
         switchStatus = view.findViewById(R.id.switch_status_driver);
         spinnerKeluhan = view.findViewById(R.id.spinner_keluhan);
         tvUsername = view.findViewById(R.id.tv_username_home);
+        layoutOffShift = view.findViewById(R.id.layout_off_shift);
 
-        // --- FITUR 1: LOGIC SWITCH STATUS (Gantiin ToggleButton) ---
+        // Logika Switch
         switchStatus.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
+                // Driver Online(Maps terlihat)
+                layoutOffShift.setVisibility(View.GONE);
                 Toast.makeText(getActivity(), "Driver Aktif (Online)", Toast.LENGTH_SHORT).show();
             } else {
+                // Driver Offline(Maps tertutup)
+                layoutOffShift.setVisibility(View.VISIBLE);
                 Toast.makeText(getActivity(), "Driver Istirahat (Offline)", Toast.LENGTH_SHORT).show();
             }
         });
 
-        // --- FITUR 2: SPINNER KELUHAN (Custom Adapter Rata Tengah) ---
+        // --- Bagian Spinner ---
         String[] listKeluhan = {"Keluhan", "Ban Bocor", "Mesin Mogok", "Bensin Habis", "Lainnya"};
-
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
                 android.R.layout.simple_spinner_item, listKeluhan) {
-
-            @NonNull
-            @Override
-            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-                View v = super.getView(position, convertView, parent);
-                if (v instanceof TextView) {
-                    ((TextView) v).setGravity(Gravity.CENTER);
-                    ((TextView) v).setTextSize(12);
-                }
-                return v;
-            }
-
-            @Override
-            public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-                View v = super.getDropDownView(position, convertView, parent);
-                if (v instanceof TextView) {
-                    ((TextView) v).setGravity(Gravity.CENTER);
-                }
-                return v;
-            }
         };
-
         spinnerKeluhan.setAdapter(adapter);
 
         return view;

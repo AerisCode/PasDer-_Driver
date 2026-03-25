@@ -13,8 +13,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
-
-        // Set halaman pertama yang muncul (Home)
+        
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
 
         bottomNav.setOnItemSelectedListener(item -> {
