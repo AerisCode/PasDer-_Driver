@@ -9,12 +9,15 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private BottomNavigationView bottomNavigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
+        // Inisialisasi BottomNavigationView sesuai ID di XML
+        bottomNavigationView = findViewById(R.id.bottom_nav);
 
         // Menampilkan HomeFragment sebagai halaman awal saat aplikasi dibuka
         if (savedInstanceState == null) {
@@ -22,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // Listener untuk menangani klik pada menu navigasi bawah
-        bottomNav.setOnItemSelectedListener(item -> {
+        bottomNavigationView.setOnItemSelectedListener(item -> {
             Fragment selectedFragment = null;
             int id = item.getItemId();
 
@@ -49,5 +52,18 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.fragment_container, fragment);
         transaction.commit();
+    }
+
+    /**
+     * Fungsi untuk update status sewa dan pindah navigasi secara programmatically.
+     */
+    public void updateNavigasi(boolean isSewa) {
+        getSharedPreferences("PasDerPrefs", MODE_PRIVATE)
+                .edit().putBoolean("is_sewa_active", isSewa).apply();
+
+        // Menggunakan ID menu yang benar: nav_home
+        if (bottomNavigationView != null) {
+            bottomNavigationView.setSelectedItemId(R.id.nav_home);
+        }
     }
 }

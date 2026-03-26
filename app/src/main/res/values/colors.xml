@@ -4,6 +4,8 @@
     <color name="pasder_biru">#48DCFA</color>
     <color name="pasder_kuning">#FCE099</color>
     <color name="pasder_bg_halaman">#D9E0FD</color>
+    <color name="pasder_kuning2">#FFD600</color>
+    <color name="pasder_hitam">#1A1A1A</color>
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
 </resources>
