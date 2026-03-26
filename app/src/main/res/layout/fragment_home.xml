@@ -73,27 +73,45 @@
         android:id="@+id/layout_off_shift"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="#AA000000"
+        android:background="#DDEEF5FF"
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@android:drawable/ic_lock_idle_lock"
-            app:tint="@color/white" />
-
-        <TextView
-            android:layout_width="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/header_container">
+        <LinearLayout
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
-            android:text="SEDANG ISTIRAHAT"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:layout_marginTop="12dp"/>
+            android:background="@drawable/bg_round_white"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="28dp">
+            <ImageView
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:src="@android:drawable/ic_dialog_map"
+                app:tint="@color/pasder_hijau" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Anda Sedang Offline"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:lineSpacingExtra="3dp"
+                android:text="Untuk melihat Maps, anda harus berada dalam mode online"
+                android:textColor="#666666"
+                android:textSize="13sp" />
+        </LinearLayout>
+
     </LinearLayout>
 
     <androidx.cardview.widget.CardView

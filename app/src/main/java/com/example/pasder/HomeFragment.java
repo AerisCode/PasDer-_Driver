@@ -26,6 +26,7 @@ public class HomeFragment extends Fragment {
     private View layoutOffShift;
     private CardView cardActiveOrder;
     private SharedPreferences prefs;
+    private View btnShelter;
 
     @Nullable
     @Override
@@ -35,6 +36,7 @@ public class HomeFragment extends Fragment {
         prefs = requireActivity().getSharedPreferences("PasDerPrefs", Context.MODE_PRIVATE);
 
         // Inisialisasi View
+        btnShelter = view.findViewById(R.id.btn_shelter);
         switchStatus = view.findViewById(R.id.switch_status_driver);
         spinnerKeluhan = view.findViewById(R.id.spinner_keluhan);
         tvActiveName = view.findViewById(R.id.tv_nama_penyewa_active);
@@ -52,9 +54,13 @@ public class HomeFragment extends Fragment {
         // Logika Switch (Online / Offline)
         switchStatus.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
+                btnShelter.setVisibility(View.VISIBLE);
+                spinnerKeluhan.setVisibility(View.VISIBLE);
                 layoutOffShift.setVisibility(View.GONE);
                 Toast.makeText(requireActivity(), "Driver Aktif (Online)", Toast.LENGTH_SHORT).show();
             } else {
+                btnShelter.setVisibility(View.GONE);
+                spinnerKeluhan.setVisibility(View.GONE);
                 layoutOffShift.setVisibility(View.VISIBLE);
                 Toast.makeText(requireActivity(), "Driver Istirahat (Offline)", Toast.LENGTH_SHORT).show();
             }
